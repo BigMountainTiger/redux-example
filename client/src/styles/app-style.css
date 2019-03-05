@@ -1,0 +1,48 @@
+/* border-box for all */
+html {
+  box-sizing: border-box;
+  background-color: transparent;
+}
+*, *:before, *:after { box-sizing: inherit; }
+
+body, * {
+	font-family: verdana;
+	font-size: 20px;
+}
+
+.container {
+	width: 300px;
+}
+
+.container div {
+	width: 100%;
+}
+
+.container button {
+	width: 100%;
+	border-radius: 5px;
+	height: 50px;
+	margin-bottom: 2px;
+}
+
+.container .ItemAggregator {
+	font-weight: 600;
+	margin: 2px 0px
+}
+
+.container .ItemList {
+	max-height: 250px;
+	margin-top: 4px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.container .ItemList>div:nth-child(odd) {
+	background-color: #e3e5dc;
+}
+
+.container .ItemList>div:hover {
+	font-weight: 600;
+	background-color: #4CAF50;
+	color: white;
+}
