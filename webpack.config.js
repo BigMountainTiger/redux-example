@@ -11,8 +11,8 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = {
 		publicPath: '/build/',
 		outputPath: path.resolve('./client/build'),
-		polyfills: path.resolve('./client/src/polyfills'),
-		index: path.resolve('./client/src/index.js'),
+		polyfills: path.resolve('./client/common/polyfills.js'),
+		example1: path.resolve('./client/src/example1/index.js'),
 		appNodeModules: path.resolve('./node_modules'),
 		appSrc: path.resolve('./client/src'),
 		appPackageJson: path.resolve('./package.json'),
@@ -20,7 +20,7 @@ const paths = {
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: { index: [ paths.polyfills, paths.index ]},
+  entry: { example1: [ paths.polyfills, paths.example1 ]},
   output: {
     pathinfo: true,
     path: paths.outputPath,
