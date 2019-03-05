@@ -109,6 +109,9 @@ module.exports = {
     new CaseSensitivePathsPlugin(),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ],
   node: { dgram: 'empty', fs: 'empty', net: 'empty', tls: 'empty', child_process: 'empty', },
   performance: { hints: false, },
