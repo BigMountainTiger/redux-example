@@ -2,9 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const Item = ({index, item}) => (
-	<span>No.{index + 1} - {item}</span>
-);
+class Item extends React.Component {
+	constructor(props) {
+		super(props);
+
+		console.log("Item constructed");
+	}
+
+	componentWillUnmount() {
+		console.log("Item component Will Unmount");
+	}
+
+	render() {
+		let p = this.props;
+		return <span>No.{p.index + 1} - {p.item}</span>;
+	}
+}
 
 // The ItemList component
 const ItemList = ({ items }) => (
