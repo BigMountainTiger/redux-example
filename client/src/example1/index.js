@@ -7,9 +7,7 @@ import reducers from './reducers'
 import App from './components/App';
 import './styles/app-style.css';
 
-
 const store = createStore(reducers);
-
 
 ReactDOM.render(<Provider store={store}><App /></Provider>,
 		document.getElementById('root'));

@@ -20,7 +20,9 @@ const paths = {
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: { example1: [ paths.polyfills, paths.example1 ]},
+  entry: {
+    example1: [ paths.polyfills, paths.example1 ],
+  },
   output: {
     pathinfo: true,
     path: paths.outputPath,
@@ -108,10 +110,7 @@ module.exports = {
 	new webpack.NamedModulesPlugin(),
     new CaseSensitivePathsPlugin(),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   node: { dgram: 'empty', fs: 'empty', net: 'empty', tls: 'empty', child_process: 'empty', },
   performance: { hints: false, },
@@ -120,3 +119,7 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
     module.exports.plugins = (module.exports.plugins || []).concat([
         new webpack.optimize.UglifyJsPlugin({})])}
+
+        // new webpack.DefinePlugin({
+        //   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        // })
