@@ -12,7 +12,8 @@ const paths = {
 		publicPath: '/build/',
 		outputPath: path.resolve('./client/build'),
 		polyfills: path.resolve('./client/src/common/polyfills'),
-		example1: path.resolve('./client/src/example1/index.js'),
+    example1: path.resolve('./client/src/example1/index.js'),
+    example2: path.resolve('./client/src/example2/index.js'),
 		appNodeModules: path.resolve('./node_modules'),
 		appSrc: path.resolve('./client/src'),
 		appPackageJson: path.resolve('./package.json')
@@ -22,7 +23,7 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   entry: { 
     example1: [ paths.polyfills, paths.example1 ],
-    example2: [ paths.polyfills, paths.example1 ]
+    example2: [ paths.polyfills, paths.example2 ]
   },
   output: {
     pathinfo: true,
