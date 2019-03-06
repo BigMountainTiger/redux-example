@@ -11,8 +11,8 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = {
 		publicPath: '/build/',
 		outputPath: path.resolve('./client/build'),
-		polyfills: path.resolve('./client/common/polyfills.js'),
-		example1: path.resolve('./client/src/example1/index.js'),
+		polyfills: path.resolve('./client/src/common/polyfills'),
+		index: path.resolve('./client/src/example1/index.js'),
 		appNodeModules: path.resolve('./node_modules'),
 		appSrc: path.resolve('./client/src'),
 		appPackageJson: path.resolve('./package.json'),
@@ -20,9 +20,7 @@ const paths = {
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: {
-    example1: [ paths.polyfills, paths.example1 ],
-  },
+  entry: { example1: [ paths.polyfills, paths.index ]},
   output: {
     pathinfo: true,
     path: paths.outputPath,
@@ -110,16 +108,16 @@ module.exports = {
 	new webpack.NamedModulesPlugin(),
     new CaseSensitivePathsPlugin(),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
   node: { dgram: 'empty', fs: 'empty', net: 'empty', tls: 'empty', child_process: 'empty', },
   performance: { hints: false, },
 };
 
 if (process.env.NODE_ENV === 'production') {
-    module.exports.plugins = (module.exports.plugins || []).concat([
-        new webpack.optimize.UglifyJsPlugin({})])}
-
-        // new webpack.DefinePlugin({
-        //   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-        // })
+      module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.optimize.UglifyJsPlugin({}),
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        })]);
+}
