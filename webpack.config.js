@@ -12,15 +12,18 @@ const paths = {
 		publicPath: '/build/',
 		outputPath: path.resolve('./client/build'),
 		polyfills: path.resolve('./client/src/common/polyfills'),
-		index: path.resolve('./client/src/example1/index.js'),
+		example1: path.resolve('./client/src/example1/index.js'),
 		appNodeModules: path.resolve('./node_modules'),
 		appSrc: path.resolve('./client/src'),
-		appPackageJson: path.resolve('./package.json'),
+		appPackageJson: path.resolve('./package.json')
 };
 
 module.exports = {
   devtool: 'cheap-module-source-map',
-  entry: { example1: [ paths.polyfills, paths.index ]},
+  entry: { 
+    example1: [ paths.polyfills, paths.example1 ],
+    example2: [ paths.polyfills, paths.example1 ]
+  },
   output: {
     pathinfo: true,
     path: paths.outputPath,
@@ -32,7 +35,7 @@ module.exports = {
 	modules: ['node_modules'],
     extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
     alias: { 'react-native': 'react-native-web' },
-    plugins: [ new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]) ],
+    plugins: [ new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]) ]
   },
   module: {
     strictExportPresence: true,
@@ -108,10 +111,10 @@ module.exports = {
 	new webpack.NamedModulesPlugin(),
     new CaseSensitivePathsPlugin(),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ],
   node: { dgram: 'empty', fs: 'empty', net: 'empty', tls: 'empty', child_process: 'empty', },
-  performance: { hints: false, },
+  performance: { hints: false, }
 };
 
 if (process.env.NODE_ENV === 'production') {
