@@ -21,6 +21,9 @@ const paths = {
 
 module.exports = {
   devtool: 'cheap-module-source-map',
+  watchOptions: {
+    poll: true
+  },
   entry: { 
     //example1: [ paths.polyfills, paths.example1 ],
     example2: [ paths.polyfills, paths.example2 ],

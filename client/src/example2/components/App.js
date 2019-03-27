@@ -1,7 +1,8 @@
 import React from 'react';
 
 const width = {
-  width: '500px'
+  width: '500px',
+  color: 'red'
 }
 
 class App extends React.Component {
@@ -9,7 +10,7 @@ class App extends React.Component {
     super(props);
     
 		this.state = {
-      value: 'This is bullshit'
+      value: 'This is bullshit?'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +28,6 @@ class App extends React.Component {
       let v = this.state.value.trim();
 
       this.setState({value: v});
-      alert('');
       console.log(v);
     }
   }
