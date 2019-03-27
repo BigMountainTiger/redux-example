@@ -14,6 +14,7 @@ const paths = {
 		polyfills: path.resolve('./client/src/common/polyfills'),
     example1: path.resolve('./client/src/example1/index.js'),
     example2: path.resolve('./client/src/example2/index.js'),
+    example3: path.resolve('./client/src/example3/index.js'),
 		appNodeModules: path.resolve('./node_modules'),
 		appSrc: path.resolve('./client/src'),
 		appPackageJson: path.resolve('./package.json')
@@ -25,8 +26,9 @@ module.exports = {
     poll: true
   },
   entry: { 
-    //example1: [ paths.polyfills, paths.example1 ],
-    example2: [ paths.polyfills, paths.example2 ],
+    // example1: [ paths.polyfills, paths.example1 ],
+    // example2: [ paths.polyfills, paths.example2 ],
+    example3: [ paths.polyfills, paths.example3 ],
   },
   output: {
     pathinfo: true,
