@@ -11,7 +11,7 @@ html {
   }
   
   .container {
-      width: 300px;
+      width: auto;
   }
   
   .container div {
@@ -19,7 +19,6 @@ html {
   }
   
   .container button {
-      width: 100%;
       border-radius: 5px;
       height: 50px;
       margin-bottom: 2px;
