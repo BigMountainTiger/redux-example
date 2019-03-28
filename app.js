@@ -17,6 +17,10 @@ app.use(function (req, res, next) {
 app.use(express.static(path.join(__dirname, 'client')));
     
 app.use(errorhandler());
+
+app.get('/json', function (req, res) {
+  res.send('GET a json response')
+})
     
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

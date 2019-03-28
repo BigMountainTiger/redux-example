@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 const box = {
     width: '500px',
@@ -17,6 +18,10 @@ class Page1 extends React.Component {
         console.log('constructor ' + page);
     }
 
+    componentDidMount() {
+        $('#theDiv').html('This is stupid');
+    }
+
 	componentWillUnmount() {
         console.log('componentWillUnmount ' + page);
     }
@@ -24,6 +29,7 @@ class Page1 extends React.Component {
 	render() {
 		return <div style={box}>
             <div>This is the page No.1</div>
+            <div id="theDiv"></div>
         </div>;
 	}
 }

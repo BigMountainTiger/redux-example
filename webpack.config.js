@@ -11,7 +11,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = {
 		publicPath: '/build/',
 		outputPath: path.resolve('./client/build'),
-		polyfills: path.resolve('./client/src/common/polyfills'),
+    polyfills: path.resolve('./client/src/common/polyfills'),
     example1: path.resolve('./client/src/example1/index.js'),
     example2: path.resolve('./client/src/example2/index.js'),
     example3: path.resolve('./client/src/example3/index.js'),
