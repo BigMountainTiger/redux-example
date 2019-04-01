@@ -29,7 +29,17 @@ app.get('/json', function (req, res) {
 app.post('/handle-post',function(req, res){
   //res.type('text/html');
   //res.send("<html><body><script>location.replace('/example4/page1.html');</script></body>");
-  res.redirect('/example4/page1.html');
+
+  let page = req.query.page;
+
+  if (page !== 'html') {
+    let url = (page == '1')? '/example4/page1.html' : '/example4/page2.html';
+    res.redirect(url);
+    
+    return;
+  }
+
+  res.send('<html><body style="background-color: red"></body></html>');
 });
     
 http.createServer(app).listen(app.get('port'), function(){

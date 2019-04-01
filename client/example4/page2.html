@@ -18,30 +18,22 @@ window.onbeforeunload = function(e) {
 
 window.onload = function() {
     document.getElementById("btnForward").addEventListener("click", function(){
-        history.go(1);
+        history.go(5);
     });
 
     document.getElementById("btnBackward").addEventListener("click", function(){
-        history.go(-1);
+        history.go(-5);
     });
 
     document.getElementById("btnHistoryLength").addEventListener("click", function(){
         alert(history.length);
-    });
-
-    document.getElementById("btnReplace").addEventListener("click", function(){
-        location.replace("page2.html");
-    });
-
-    document.getElementById("btnAssign").addEventListener("click", function(){
-        location.assign("page2");
     });
 };
 
 </script>
 </head>
 <body>
-<div>Example 4 - Page 1</div>
+<div>Example 4 - Page 2</div>
 <div>
     <input type="checkbox" id="chkDirty">Page is dirty<br>
 </div>
@@ -49,22 +41,19 @@ window.onload = function() {
 <div><a href="/">Back ...</a></div>
 
 <!-- Submit and immediate redirect -->
-<form action="/handle-post?page=2" method="POST">
+<form action="/handle-post?page=1" method="POST">
     <button type="submit">Submit Form</button>
 </form>
 
-<div>
-    <button type="button" id="btnReplace">Replace</button>
-    <button type="button" id="btnAssign">Assign</button>
-</div>
+<form action="/handle-post?page=html" method="POST">
+    <button type="submit">Submit Form for non-redirect</button>
+</form>
 
 <div>
     <button type="button" id="btnForward">Forward</button>
     <button type="button" id="btnBackward">Backward</button>
     <button type="button" id="btnHistoryLength">History Length</button>
 </div>
-
-
 
 </div>
 </body>
