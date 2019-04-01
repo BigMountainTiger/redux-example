@@ -5,7 +5,7 @@ const box = {
     width: '500px',
     height: '500px',
     padding: '10px',
-    backgroundColor: 'red'
+    backgroundColor: '#F3C5C5'
 };
 
 const page = 'Page 1';
@@ -15,11 +15,20 @@ class Page1 extends React.Component {
     constructor(props) {
         super(props);
 
+        this.state = {};
+
         console.log('constructor ' + page);
     }
 
     componentDidMount() {
-        $('#theDiv').html('This is stupid');
+        this.setState({text: 'This is stupid'});
+
+        let url = 'http://localhost:3000/json';
+        // ES6 syntax does not have it own scope
+        $.get(url, (data) => {
+            this.setState({text: JSON.stringify(data)});
+        });
+
     }
 
 	componentWillUnmount() {
@@ -29,7 +38,7 @@ class Page1 extends React.Component {
 	render() {
 		return <div style={box}>
             <div>This is the page No.1</div>
-            <div id="theDiv"></div>
+            <div id="theDiv">{this.state.text}</div>
         </div>;
 	}
 }

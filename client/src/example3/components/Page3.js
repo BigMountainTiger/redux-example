@@ -4,7 +4,7 @@ const box = {
     width: '500px',
     height: '500px',
     padding: '10px',
-    backgroundColor: 'yellow'
+    backgroundColor: '#575B98'
 };
 
 const page = 'Page 3';

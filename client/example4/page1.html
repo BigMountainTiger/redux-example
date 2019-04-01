@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Example 4</title>
+<script type="text/javascript">
+
+window.onbeforeunload = function(e) {
+    let dirty = document.getElementById("chkDirty").checked;
+
+    console.log(dirty);
+
+    //e.preventDefault();
+    //return "Are you sure you want to navigate away?";
+
+    return null;
+}
+
+</script>
+</head>
+<body>
+<div>Example 4</div>
+<div>
+    <input type="checkbox" id="chkDirty">Page is dirty<br>
+</div>
+<div>
+<div><a href="/">Back ...</a></div>
+
+<!-- Submit and immediate redirect -->
+<form action="/handle-post" method="POST">
+    <button type="submit">Submit Form</button>
+</form>
+</div>
+</body>
+</html>

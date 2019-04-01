@@ -19,8 +19,18 @@ app.use(express.static(path.join(__dirname, 'client')));
 app.use(errorhandler());
 
 app.get('/json', function (req, res) {
-  res.send('GET a json response')
+  let result = {
+    value: 'This is the value'
+  };
+
+  res.send(result);
 })
+
+app.post('/handle-post',function(req, res){
+  //res.type('text/html');
+  //res.send("<html><body><script>location.replace('/example4/page1.html');</script></body>");
+  res.redirect('/example4/page1.html');
+});
     
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
