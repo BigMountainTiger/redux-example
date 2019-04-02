@@ -16,6 +16,10 @@ window.onbeforeunload = function(e) {
     return null;
 };
 
+window.onpopstate = function(event) {
+  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+};
+
 window.onload = function() {
     document.getElementById("btnForward").addEventListener("click", function(){
         history.go(1);
@@ -36,6 +40,23 @@ window.onload = function() {
     document.getElementById("btnAssign").addEventListener("click", function(){
         location.assign("page2");
     });
+
+    document.getElementById("btnPushState").addEventListener("click", function(){
+        let state = {
+            A: 'a'
+        };
+
+        history.pushState(state, '', "#A");
+    });
+
+    document.getElementById("btnReplaceState").addEventListener("click", function(){
+        let state = {
+            A: 'b'
+        };
+
+        history.replaceState(state, '', "#B");
+    });
+
 };
 
 </script>
@@ -56,6 +77,11 @@ window.onload = function() {
 <div>
     <button type="button" id="btnReplace">Replace</button>
     <button type="button" id="btnAssign">Assign</button>
+</div>
+
+<div>
+    <button type="button" id="btnPushState">Push State</button>
+    <button type="button" id="btnReplaceState">Replace State</button>
 </div>
 
 <div>

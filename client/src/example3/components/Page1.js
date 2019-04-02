@@ -15,7 +15,7 @@ class Page1 extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {which: 'Page 1'};
 
         console.log('constructor ' + page);
     }
@@ -32,6 +32,8 @@ class Page1 extends React.Component {
     }
 
 	componentWillUnmount() {
+        
+        console.log(this.state);
         console.log('componentWillUnmount ' + page);
     }
 
